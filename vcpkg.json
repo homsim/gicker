@@ -1,0 +1,7 @@
+{
+  "name": "gicker",
+  "version": "0.1.0",
+  "dependencies": [
+    "picojson"
+  ]
+}
