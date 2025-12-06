@@ -84,7 +84,7 @@ std::filesystem::path GickerCli::getContainerSourcePath(const picojson::value &j
     const auto &labels_obj = labels_it->second.get<picojson::value::object>();
     const auto path_it = labels_obj.find("com.docker.compose.project.working_dir");
     if (path_it == labels_obj.end() || !path_it->second.is<std::string>()) {
-        throw std::runtime_error("Working directory label not found or not a string");
+        throw std::runtime_error("Working directory label not found. Is the docker container based on a local image?");
     }
 
     return std::filesystem::path(path_it->second.get<std::string>());
